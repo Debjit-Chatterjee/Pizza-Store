@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+  <title>D's Pizza Store</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+<link rel='stylesheet' href='https://cdn.jsdelivr.net/foundation/5.0.2/css/foundation.css'>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/cartka.css">
+
+</head>
+<body>
+
+<div class="row" style="max-width:100%">
+    <div class="header">
+        <div class="inner_header">
+            
+            <a class="logo name" href="index.html">
+            <ion-icon name="home"></ion-icon>
+            </a>
+            </ul>
+            <ul>
+            <a class="header_link button name"  href="index.html">
+            <ion-icon name="exit"></ion-icon>
+            Logout
+            </a>
+            </ul>
+            <ul>
+            <a class="header_link button name"  href="pizza.html">
+            <ion-icon name="pizza"></ion-icon>
+            Store
+            </a>
+            </ul>
+        </div>
+    </div>
+    <div class="medium-4  columns">
+        <div class="cart">
+            <h1><ion-icon name="basket"></ion-icon>Cart items</h1>
+            <div class="row">
+                <div class="medium-6 columns">
+                    <button class="button" id="clear">Clear the cart</button>
+                </div>
+                
+                <div class="medium-6 columns">
+                   <div class="exit"> 
+                    <a href="cart.html"><button class=" button" onclick="remove()">Checkout</button></a>
+                </div>
+                </div>
+            </div>
+            <div id="cartItems"></div>
+            <span style="font-family:'pacifico' , cursive;">Total price: </span><strong id="totalPrice">0 $</strong>
+        </div>
+      </div>
+    <div class="medium-8 columns">
+        <div class="products">
+            <div class="product medium-4 columns" data-name="California Pizza" data-price="699" data-id="0">
+                <img src="images/calp.jpg" alt="" />
+                <h3>California Style Pizza</h3>
+                <input type="number" class="count" value="0" />
+                <button class="tiny">Add to cart</button>
+            </div>
+            <div class="product medium-4 columns" data-name="Chicago Pizza" data-price="599" data-id="1">
+                <img src="images/chicp.jpg" alt="" />
+                <h3>Chicago Style Pizza</h3>
+                <input type="number" class="count" value="0" />
+                <button class="tiny">Add to cart</button>
+            </div>
+            <div class="product medium-4 columns" data-name="Detroit Pizza" data-price="499" data-id="2">
+                <img src="images/detr.jpg" alt="" />
+                <h3>Greek Style Pizza </h3>
+                <input type="number" class="count" value="0" />
+                <button class="tiny">Add to cart</button>
+            </div>
+            <div class="product medium-4 columns" data-name="Neapolitan Pizza" data-price="699" data-id="3">
+                <img src="images/neap.jpg" alt="" />
+                <h3>Neapolitan Style Pizza</h3>
+                <input type="number" class="count" value="0" />
+                <button class="tiny">Add to cart</button>
+            </div>
+            <div class="product medium-4 columns" data-name="Combo Special" data-price="399" data-id="4">
+                <img src="images/combo1.jpg" alt="" />
+                <h3>Special Burger Combo</h3>
+                <input type="number" class="count" value="0" />
+                <button class="tiny">Add to cart</button>
+            </div>
+            <div class="product medium-4 columns" data-name="NewYork Pizza" data-price="549" data-id="5">
+                <img src="images/nyp.jpg" alt="" />
+                <h3>NewYork Style Pizza</h3>
+                <input type="number" class="count" value="0" />
+                <button class="tiny">Add to cart</button>
+            </div>
+            <div class="product medium-4 columns" data-name="Silican Pizza" data-price="749" data-id="6">
+                <img src="images/silp.jpg" alt="" />
+                <h3>Silican Pizza Style</h3>
+                <input type="number" class="count" value="0" />
+                <button class="tiny">Add to cart</button>
+            </div>
+            <div class="product medium-4 columns" data-name="St. Louis Pizza" data-price="849" data-id="7">
+                <img src="images/stp.jpg" alt="" />
+                <h3>St. Louis Style Pizza</h3>
+                <input type="number" class="count" value="0" />
+                <button class="tiny">Add to cart</button>
+            </div>
+            <div class="product medium-4 columns" data-name="Greek Pizza" data-price="449" data-id="8">
+                <img src="images/grp.jpg" alt="" />
+                <h3>Greek Style Pizza</h3>
+                <input type="number" class="count" value="0" />
+                <button class="tiny">Add to cart</button>
+            </div>
+        </div>
+    </div>
+</div>
+<footer align="center">
+            
+                <p style="font-weight:bold;">Copyright © D's Pizza Store | All Rights Reserved |
+                 Contact Us: +91 90000 00000</p>
+        
+</footer>
+
+<script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+<script type="text/template" id="cartT">
+  <% _.each(items, function (item) { %> <div class = "panel"> <h3> <%= item.name %> </h3>  <span class="label">
+<%= item.count %> piece<% if(item.count > 1)
+{%>s
+<%}%> for <%= item.total %>₹</span > </div>
+<% }); %>
+</script>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js'></script>
+<script  src="JS/function.js"></script>
+<script>
+    function remove()
+    {
+        var minm = 1000000000; 
+            var maxm = 9999999999; 
+
+            var minimum = 10000;
+            var maximum = 99999;
+
+
+            alert('Congragulations! You have placed your order.' + ' Please note your order number for future reference ' +"\n" + Math.floor(Math .random() * (maximum - minimum + 1) + minimum) + "\n" + 'Please call at this number regarding confirmation of your location.'+ "\n"+'+91-' + Math.floor(Math .random() * (maxm - minm + 1) + minm) + "\n"+'You can pay through Debit Card or UPI at the time of the delivery'+"\n"+'Enjoy !');
+        let items = document.querySelector('.exit');
+        items.addEventListener('click', () => {
+            clear();
+        })
+    }
+
+    function clear()
+    {
+        localStorage.clear();
+    }
+</script>
+</body>
+</html>
